@@ -1,0 +1,15 @@
+{
+  "name": "teste_chuva",
+  "version": "1.0.0",
+  "description": "Neste teste tive sete dias corridos para realizar uma página de um evento, realizado pela empresa que propos o teste, foi muito interessante para meu aprendizado.",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start-dev": "node src/index.js"
+  },
+  "author": "Gabriel <gabrielglatz13@gmail.com>",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
