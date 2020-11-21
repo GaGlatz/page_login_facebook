@@ -135,11 +135,11 @@
 }
 
 .menu__item {
-    width: 150%;
+    width: 100%;
     height: 3.5rem;
     position: relative;
     padding: 0.8rem 3.5rem;
-    left: -3.9rem;
+    left: 0.2rem;
     font-family: 'Quicksand', sans-serif;
     font-style: normal;
     font-weight: 400;
@@ -149,6 +149,7 @@
     list-style: none;
     cursor: pointer;
     border-bottom: 0.2rem solid #E7E7E7;
+    margin: 0 -0.2rem;
 }
 
 .menu__item:hover {
@@ -632,6 +633,7 @@
         width: 100%;
         display: inline-block;
         position: relative;
+        text-align: center;
         top: 0;
         left: 0;
         border-top: 0.2rem solid #E7E7E7;
@@ -644,13 +646,14 @@
         justify-content: center;
         box-sizing: border-box;
         font-size: 1.2rem;
-        top: -1.4rem;
-        left: -1%;
+        top: 0;
+        left: 0;
         padding: 0;
         background-color: #FFFFFF;
-        width:  16%;
+        width:  16.85%;
         padding: 0;
         border: 0.2rem solid #E7E7E7;
+        border-top: none;
     }
 
     .menu__item--actived {
@@ -659,7 +662,7 @@
 
     .menu__item--actived::after {
         position: absolute;
-        top: 3rem;
+        top: 3.2rem;
         left: 0;
         width: 100%;
         height: 0.2rem;
@@ -744,11 +747,10 @@
     }
 }
 
-@media screen and (max-width: 576px) {
+@media screen and (max-width: 515px) {
     .menu__item {
         font-size: 1rem;
-        left: 6.5%;
-        width: 26%;
+        width: 16.95%;
     }
 }
 
@@ -773,6 +775,10 @@
 }
 
 @media screen and (max-width: 429px) {
+    .menu__item {
+        font-size: 1.2rem;
+        width: 25.3%;
+    }
     .box__topics--overlap {
         top: 31.4rem;
         height: 28rem;
@@ -780,7 +786,20 @@
 }
 
 @media screen and (max-width: 373px) {
+    .menu__item {
+        font-size: 1.2rem;
+        width: 25.3%;
+    }
     .box__topics--overlap {
         top: 34.4rem;
+    }
+}
+
+@media screen and (max-width: 345px) {
+    .menu__item {
+        font-size: 1rem;
+    }
+    .box__topics--overlap {
+        top: 36.4rem;
     }
 }
