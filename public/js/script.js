@@ -50,143 +50,150 @@ function comment() {
     }
 }
 
-function answers1() {
-    let answers = document.getElementById('answers1');
-    let comment = document.getElementById('comment1');
+function answers(amount) {
+    let answersE = document.getElementById(`answersE${amount}`);
+    let comment = document.getElementById(`comment${amount}`);
 
-    if (answers.style.display == 'none') {
-        answers.style.display = 'inline-block';
-        comment.style.height = 'auto';
-    } else {
-        answers.style.display = 'none';
-        comment.style.height = '4.5rem';
+    results = parseInt(answersE.textContent.slice(0, -10));
+
+    for (let index = 1; index <= results; index++) {
+        let answers = document.getElementById(`answers${index}-comment${amount}`);
+
+        if (answers.style.display == 'none') {
+            answers.style.display = 'inline-block';
+            comment.style.height = 'auto';
+        } else {
+            answers.style.display = 'none';
+            comment.style.height = '4.5rem';
+        } 
     }
 }
 
-function answers2() {
-    let answers = document.getElementById('answers2');
-    let answers1 = document.getElementById('answers3');
-    let answers2 = document.getElementById('answers4');
-    let answers3 = document.getElementById('answers5');
-    let comment = document.getElementById('comment2');
-
-    if (answers.style.display == 'none') {
-        answers.style.display = 'inline-block';
-        answers1.style.display = 'inline-block';
-        answers2.style.display = 'inline-block';
-        answers3.style.display = 'inline-block';
-        comment.style.height = 'auto';
-    } else {
-        answers.style.display = 'none';
-        answers1.style.display = 'none';
-        answers2.style.display = 'none';
-        answers3.style.display = 'none';
-        comment.style.height = '4.5rem';
-    }
-}
-
-function like1() {
-    let add = document.getElementById('likes1');
-
-    results = parseInt(add.textContent.slice(0, -6));
-    add.textContent = results + 1 + ' Likes';
-}
-
-function like2() {
-    let add = document.getElementById('likes2');
-
-    results = parseInt(add.textContent.slice(0, -6));
-    add.textContent = results + 1 + ' Likes';
-}
-
-function like3() {
-    let add = document.getElementById('likes3');
-
-    results = parseInt(add.textContent.slice(0, -6));
-    add.textContent = results + 1 + ' Likes';
-}
-
-function like4() {
-    let add = document.getElementById('likes4');
-
-    results = parseInt(add.textContent.slice(0, -6));
-    add.textContent = results + 1 + ' Likes';
-}
-
-function like5() {
-    let add = document.getElementById('likes5');
-
-    results = parseInt(add.textContent.slice(0, -6));
-    add.textContent = results + 1 + ' Likes';
-}
-
-function like6() {
-    let add = document.getElementById('likes6');
-
-    results = parseInt(add.textContent.slice(0, -6));
-    add.textContent = results + 1 + ' Likes';
-}
-
-function like7() {
-    let add = document.getElementById('likes7');
-
-    results = parseInt(add.textContent.slice(0, -6));
-    add.textContent = results + 1 + ' Likes';
-}
-
-function like8() {
-    let add = document.getElementById('likes8');
+function like(amount) {
+    let add = document.getElementById(`likes${amount}`);
 
     results = parseInt(add.textContent.slice(0, -6));
     add.textContent = results + 1 + ' Likes';
 }
 
 function createNewComment(title, user, content, amount) {
-    const boxMaster = document.getElementById('box_content');
-    let boxE1 = document.createElement('div');
-    let titleE1 = document.createElement('p');
-    let author = document.createElement('p');
-    let bold = document.createElement('strong')
-    let comment = document.createElement('p');
-    let boxE2 = document.createElement('div');
-    let buttonE1 = document.createElement('button');
-    let buttonE2 = document.createElement('button');
-    let buttonE3 = document.createElement('button');
-    let buttonE4 = document.createElement('button');
-    let iE1 = document.createElement('i');
-    let iE2 = document.createElement('i');
+    if (amount == 1) {
+        const boxMaster = document.getElementById('box_content');
+        let boxE1 = document.createElement('div');
+        let titleE1 = document.createElement('p');
+        let author = document.createElement('p');
+        let bold = document.createElement('strong')
+        let comment = document.createElement('p');
+        let boxE2 = document.createElement('div');
+        let buttonE1 = document.createElement('button');
+        let buttonE2 = document.createElement('button');
+        let buttonE3 = document.createElement('button');
+        let buttonE4 = document.createElement('button');
+        let iE1 = document.createElement('i');
+        let iE2 = document.createElement('i');
+        let boxE3 = document.createElement('div');
+        let contentE1 = document.createElement('p');
+        let contentE2 = document.createElement('p');
+        let contentE3 = document.createElement('p');
+        let iconE1 = document.createElement('i');
+        let linkE1 = document.createElement('a')
 
-    titleE1.textContent = title;
-    bold.textContent = user;
-    comment.textContent = content;
-    buttonE3.textContent = '0 Likes';
-    buttonE4.textContent = '0 Respostas';
+        titleE1.textContent = title;
+        bold.textContent = user;
+        comment.textContent = content;
+        buttonE3.textContent = '0 Likes';
+        buttonE4.textContent = '0 Respostas';
+        contentE2.textContent = 'Aguardando feedback dos autores';
+        linkE1.textContent = 'Editar tópico';
 
-    buttonE1.appendChild(iE1);
-    buttonE2.appendChild(iE2);
-    boxE2.appendChild(buttonE1);
-    boxE2.appendChild(buttonE2);
-    boxE2.appendChild(buttonE3);
-    boxE2.appendChild(buttonE4);
-    author.appendChild(bold);
-    boxE1.appendChild(titleE1);
-    boxE1.appendChild(author);
-    boxE1.appendChild(comment);
-    boxE1.appendChild(boxE2);
-    boxMaster.appendChild(boxE1);
+        buttonE1.appendChild(iE1);
+        buttonE2.appendChild(iE2);
+        boxE2.appendChild(buttonE1);
+        boxE2.appendChild(buttonE2);
+        boxE2.appendChild(buttonE3);
+        boxE2.appendChild(buttonE4);
+        author.appendChild(bold);        
+        contentE1.appendChild(iconE1);
+        contentE3.appendChild(linkE1);
+        boxE3.appendChild(contentE1);
+        boxE3.appendChild(contentE2);
+        boxE3.appendChild(contentE3);
+        boxE1.appendChild(titleE1);
+        boxE1.appendChild(author);
+        boxE1.appendChild(comment);
+        boxE1.appendChild(boxE2);
+        boxE1.appendChild(boxE3);
+        boxMaster.appendChild(boxE1);
 
-    boxE1.setAttribute('class', 'box__topics');
-    titleE1.setAttribute('class', 'content__title content__title--box');
-    comment.setAttribute('class', 'topic__comment');
-    boxE2.setAttribute('class', 'box__button--topic');
-    buttonE1.setAttribute('class', 'content__button content__button--topic');
-    buttonE2.setAttribute('class', 'content__button');
-    buttonE3.setAttribute('class', 'content__button content__button--topic');
-    buttonE4.setAttribute('class', 'content__button content__button--topic');
-    iE1.setAttribute('class', 'fas fa-ellipsis-v button__icon');
-    iE2.setAttribute('class', 'fas fa-heart button__icon');
+        boxE1.setAttribute('class', 'box__topics');
+        titleE1.setAttribute('class', 'content__title content__title--box');
+        comment.setAttribute('class', 'topic__comment');
+        boxE2.setAttribute('class', 'box__button--topic');
+        buttonE1.setAttribute('class', 'content__button content__button--topic');
+        buttonE2.setAttribute('class', 'content__button');
+        buttonE3.setAttribute('class', 'content__button content__button--topic');
+        buttonE4.setAttribute('class', 'content__button content__button--topic');
+        iE1.setAttribute('class', 'fas fa-ellipsis-v button__icon');
+        iE2.setAttribute('class', 'fas fa-heart button__icon');
+        boxE3.setAttribute('class', 'box__topics box__topics--overlap');
+        iconE1.setAttribute('class', 'fas fa-check-double button__icon');
+        linkE1.setAttribute('class', 'box__link');
 
-    buttonE3.setAttribute('id', `likes${amount}`);
+        buttonE3.setAttribute('id', `likes${amount}`);
+        boxE3.setAttribute('id', 'box_overlap');
 
-    buttonE2.setAttribute('onclick', `like${amount}()`);
+        buttonE2.setAttribute('onclick', `like(${amount})`);
+
+        boxE3.setAttribute('style', 'display: none;');
+
+        linkE1.setAttribute('href', '#');
+    } else {
+        const boxMaster = document.getElementById('box_content');
+        let boxE1 = document.createElement('div');
+        let titleE1 = document.createElement('p');
+        let author = document.createElement('p');
+        let bold = document.createElement('strong')
+        let comment = document.createElement('p');
+        let boxE2 = document.createElement('div');
+        let buttonE1 = document.createElement('button');
+        let buttonE2 = document.createElement('button');
+        let buttonE3 = document.createElement('button');
+        let buttonE4 = document.createElement('button');
+        let iE1 = document.createElement('i');
+        let iE2 = document.createElement('i');
+
+        titleE1.textContent = title;
+        bold.textContent = user;
+        comment.textContent = content;
+        buttonE3.textContent = '0 Likes';
+        buttonE4.textContent = '0 Respostas';
+
+        buttonE1.appendChild(iE1);
+        buttonE2.appendChild(iE2);
+        boxE2.appendChild(buttonE1);
+        boxE2.appendChild(buttonE2);
+        boxE2.appendChild(buttonE3);
+        boxE2.appendChild(buttonE4);
+        author.appendChild(bold);
+        boxE1.appendChild(titleE1);
+        boxE1.appendChild(author);
+        boxE1.appendChild(comment);
+        boxE1.appendChild(boxE2);
+        boxMaster.appendChild(boxE1);
+
+        boxE1.setAttribute('class', 'box__topics');
+        titleE1.setAttribute('class', 'content__title content__title--box');
+        comment.setAttribute('class', 'topic__comment');
+        boxE2.setAttribute('class', 'box__button--topic');
+        buttonE1.setAttribute('class', 'content__button content__button--topic');
+        buttonE2.setAttribute('class', 'content__button');
+        buttonE3.setAttribute('class', 'content__button content__button--topic');
+        buttonE4.setAttribute('class', 'content__button content__button--topic');
+        iE1.setAttribute('class', 'fas fa-ellipsis-v button__icon');
+        iE2.setAttribute('class', 'fas fa-heart button__icon');
+
+        buttonE3.setAttribute('id', `likes${amount}`);
+
+        buttonE2.setAttribute('onclick', `like(${amount})`);
+    }
 }
